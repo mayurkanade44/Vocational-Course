@@ -185,20 +185,6 @@ const Admission = () => {
                           aria-labelledby="emailAddress"
                         />
                       </div>
-                      <div className="ml-10 md:w-24">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="age"
-                        >
-                          Age
-                        </label>
-                        <input
-                          type="number"
-                          className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="emailAddress"
-                          placeholder="50"
-                        />
-                      </div>
                       <div className="ml-10 md:w-44">
                         <label
                           className="text-sm leading-none text-gray-800"
@@ -230,6 +216,23 @@ const Admission = () => {
                           aria-labelledby="emailAddress"
                           placeholder="A+"
                         />
+                      </div>
+                      <div className="ml-10 md:w-44">
+                        <label
+                          className="text-sm leading-none text-gray-800"
+                          id="emailAddress"
+                        >
+                          Do You Have A Disability?
+                        </label>
+                        <select
+                          type="select"
+                          className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
+                          aria-labelledby="emailAddress"
+                          placeholder="Select"
+                        >
+                          <option>No</option>
+                          <option>Yes</option>
+                        </select>
                       </div>
                     </div>
                     <div className="items-center md:flex lg:mt-8">
@@ -431,7 +434,7 @@ const Admission = () => {
                 <div className="flex justify-between border-b border-gray-200 pb-8 lg:flex">
                   <div>
                     <div className="items-center md:flex lg:mb-8">
-                      <div className="md:w-28">
+                      <div className="md:w-36">
                         <label
                           className="text-sm leading-none text-gray-800"
                           id="fatherFirstName"
@@ -449,16 +452,45 @@ const Admission = () => {
                           className="text-sm leading-none text-gray-800"
                           id="fatherMiddleName"
                         >
-                          10th University Name
+                          10th Board Name
                         </label>
                         <input
                           type="text"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="middleName"
-                          placeholder="Your university name"
+                          placeholder="Board Name Of 10th"
                         />
                       </div>
-                      <div className="pl-10  md:w-52">
+                      <div className="pl-10  md:w-48">
+                        <label
+                          className="text-sm leading-none text-gray-800"
+                          id="fatherFirstName"
+                        >
+                          10+2 Percentage
+                        </label>
+                        <input
+                          type="number"
+                          className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
+                          aria-labelledby="firstName"
+                        />
+                      </div>
+                      <div className="ml-10 md:w-52">
+                        <label
+                          className="text-sm leading-none text-gray-800"
+                          id="fatherMiddleName"
+                        >
+                          10+2 Board Name
+                        </label>
+                        <input
+                          type="text"
+                          className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
+                          aria-labelledby="middleName"
+                          placeholder="Board Name Of 10+2"
+                        />
+                      </div>
+                    </div>
+                    <div className="items-center md:flex lg:mb-8">
+                      <div className="md:w-52">
                         <label
                           className="text-sm leading-none text-gray-800"
                           id="fatherFirstName"
@@ -602,7 +634,7 @@ const Admission = () => {
               </>
             ) : next === "Upload" ? (
               <>
-                <h1 className="mb-4 mt-5 text-center text-2xl font-medium leading-5 text-gray-800">
+                <h1 className="mt-5 text-center text-2xl font-medium leading-5 text-gray-800">
                   Upload Documents
                 </h1>
                 <div className="flex justify-between border-b border-gray-200 pb-8 lg:flex">
@@ -650,6 +682,15 @@ const Admission = () => {
                         </label>
                         <input type="file" className="mt-1" />
                       </div>
+                      <div className="w-64">
+                        <label
+                          className="text-sm font-medium leading-none text-gray-800"
+                          id="university"
+                        >
+                          10+2 Marksheet
+                        </label>
+                        <input type="file" className="mt-1" />
+                      </div>
                       <div className="ml-10 md:w-64">
                         <div className="w-64">
                           <label
@@ -661,16 +702,16 @@ const Admission = () => {
                           <input type="file" className="mt-1" />
                         </div>
                       </div>
-                      <div className="ml-10 md:w-64">
-                        <div className="w-72">
-                          <label
-                            className="text-sm font-medium leading-none text-gray-800"
-                            id="university"
-                          >
-                            Vocational certification if any
-                          </label>
-                          <input type="file" className="mt-1" />
-                        </div>
+                    </div>
+                    <div className="md:w-64 mt-8">
+                      <div className="w-72">
+                        <label
+                          className="text-sm font-medium leading-none text-gray-800"
+                          id="university"
+                        >
+                          Vocational Certification If Any
+                        </label>
+                        <input type="file" className="mt-1" />
                       </div>
                     </div>
                     <button

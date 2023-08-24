@@ -27,7 +27,7 @@ const days = [
       },
       {
         name: "Dr. Sanjay Sarkar",
-        role: "Professor",
+        role: "Course Coordinator",
         image: dianneGuilianelliImage,
       },
     ],
