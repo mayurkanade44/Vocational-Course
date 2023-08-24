@@ -1,6 +1,7 @@
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import Home from "./pages/Home";
+import Admission from "./pages/Admission";
 
 import {
   createBrowserRouter,
@@ -27,6 +28,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index="true" path="/" element={<Home />} />,
+        <Route path="/admission" element={<Admission />} />
       </Route>
     )
   );
