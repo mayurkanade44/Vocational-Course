@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { v2 as cloudinary } from "cloudinary";
 import fileUpload from "express-fileupload";
 import Student from "./studentModel.js";
-import fs from 'fs'
+import fs from "fs";
 import cors from "cors";
 
 dotenv.config();
@@ -51,7 +51,7 @@ app.post("/api/documentUpload", async (req, res) => {
 
 app.post("/api/studentRegister", async (req, res) => {
   try {
-    await Student.create(req.body);
+    await Student.create({ details: req.body });
 
     res.status(201).json({ msg: "Registration completed" });
   } catch (error) {

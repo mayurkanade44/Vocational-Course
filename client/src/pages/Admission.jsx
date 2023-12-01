@@ -1,8 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const Admission = () => {
-  const [next, setNext] = useState("Upload");
+  const [next, setNext] = useState("Personal Information");
   const [isLoading, setLoading] = useState(false);
   const [form, setForm] = useState({
     firstName: "",
@@ -61,6 +64,22 @@ const Admission = () => {
     setNext("Upload");
   };
 
+  const submitApplication = async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/studentRegister",
+        form
+      );
+
+      setLoading(false);
+      toast.success("Application Submitted");
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      toast.error("There is some error, try again later");
+    }
+  };
+
   const handleUploadDocuments = () => {
     if (
       !form.marksheet10.length ||
@@ -69,7 +88,7 @@ const Admission = () => {
       !form.castCertificate.length ||
       !form.passportPics.length
     ) {
-      console.log("Please provide ");
+      toast.error("Please upload all the required documents");
       return;
     }
 
@@ -100,6 +119,7 @@ const Admission = () => {
 
   return (
     <div className="m-5">
+      <ToastContainer position="top-center" autoClose={3000} />
       <div className="flex items-center justify-center">
         <div className="w-full px-8 xl:w-10/12">
           <div className="bg-gray-100 py-5">
@@ -1067,11 +1087,9 @@ const Admission = () => {
                   </label>
                   <button
                     className="mt-8 ml-20 rounded-lg bg-green-700 px-4 py-1 text-lg text-white hover:bg-blue-600"
-                    onClick={() => setNext("Payment")}
+                    onClick={submitApplication}
                   >
-                    <a href="https://seramporecollege.ac.in/">
-                      Proceed Towards Payment
-                    </a>
+                    Submit
                   </button>
                 </div>
               </div>
