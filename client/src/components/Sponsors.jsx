@@ -15,7 +15,7 @@ export function Sponsors() {
     <section id="sponsors" aria-label="Sponsors" className="pb-5 pt-10">
       <Container>
         <h2 className="mx-auto max-w-2xl text-center font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
-          Partners & Sponsors
+          Partners
         </h2>
         <div className="mx-auto mt-5 grid max-w-max grid-cols-3 place-content-center gap-y-12 gap-x-16 lg:gap-x-32">
           {sponsors.map((sponsor) => (

@@ -2,6 +2,56 @@ import { useState } from "react";
 
 const Admission = () => {
   const [next, setNext] = useState("Personal Information");
+  const [form, setForm] = useState({
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    alternatePhone: "",
+    dob: "",
+    gender: "",
+    blood: "",
+    disability: "No",
+    nationality: "",
+    religion: "",
+    caste: "General",
+    fatherName: "",
+    motherName: "",
+    income: "",
+    guardianName: "",
+    relationGuardian: "",
+    incomeGuardian: "",
+    address: "",
+    city: "",
+    pincode: "",
+    percentage10: "",
+    board10: "",
+    percentage12: "",
+    board12: "",
+    lastUniversity: "",
+    passingYear: "",
+    rollNo: "",
+    regNo: "",
+    best4: "",
+    extraCourse: "",
+  });
+
+  const handlePersonalInfo = (e) => {
+    e.preventDefault();
+
+    console.log(form);
+
+    setNext("Education");
+  };
+
+  const handleEducationInfo = (e) => {
+    e.preventDefault();
+
+    console.log(form);
+
+    setNext("Upload");
+  };
 
   return (
     <div className="m-5">
@@ -77,7 +127,7 @@ const Admission = () => {
           </div>
           <div className="xl:px-24">
             {next === "Personal Information" ? (
-              <>
+              <form onSubmit={handlePersonalInfo}>
                 <h1 className="my-8 pr-2 text-center text-2xl font-medium leading-5 text-gray-800">
                   Personal Information
                 </h1>
@@ -92,10 +142,17 @@ const Admission = () => {
                           First Name
                         </label>
                         <input
+                          required
                           type="text"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="firstName"
                           placeholder="John"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              firstName: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-64">
@@ -106,10 +163,17 @@ const Admission = () => {
                           Middle Name
                         </label>
                         <input
+                          required
                           type="text"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="middleName"
                           placeholder="Michel"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              middleName: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-64">
@@ -120,10 +184,17 @@ const Admission = () => {
                           Last Name
                         </label>
                         <input
+                          required
                           type="text"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="lastName"
                           placeholder="Doe"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              lastName: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                     </div>
@@ -136,10 +207,17 @@ const Admission = () => {
                           Email address
                         </label>
                         <input
+                          required
                           type="email"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="emailAddress"
                           placeholder="youremail@example.com"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              email: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="mt-4 md:ml-10 md:mt-0 md:w-64">
@@ -150,10 +228,17 @@ const Admission = () => {
                           Phone number
                         </label>
                         <input
+                          required
                           type="name"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="phone"
                           placeholder="123-1234567"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              phone: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="mt-4 md:ml-10 md:mt-0 md:w-64">
@@ -168,6 +253,12 @@ const Admission = () => {
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="phone"
                           placeholder="123-1234567"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              alternatePhone: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                     </div>
@@ -180,9 +271,16 @@ const Admission = () => {
                           Date Of Birth
                         </label>
                         <input
+                          required
                           type="date"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="emailAddress"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              dob: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-44">
@@ -193,11 +291,19 @@ const Admission = () => {
                           Gender
                         </label>
                         <select
+                          required
                           type="select"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="emailAddress"
                           placeholder="Select"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              gender: e.target.value,
+                            }))
+                          }
                         >
+                          <option>Select</option>
                           <option>Male</option>
                           <option>Female</option>
                           <option>Prefer Not To Say</option>
@@ -215,6 +321,12 @@ const Admission = () => {
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="emailAddress"
                           placeholder="A+"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              blood: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-44">
@@ -229,6 +341,12 @@ const Admission = () => {
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="emailAddress"
                           placeholder="Select"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              disability: e.target.value,
+                            }))
+                          }
                         >
                           <option>No</option>
                           <option>Yes</option>
@@ -244,10 +362,17 @@ const Admission = () => {
                           Nationality
                         </label>
                         <input
+                          required
                           type="text"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="firstName"
                           placeholder="Indian"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              nationality: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="md:ml-10 md:w-64">
@@ -258,10 +383,16 @@ const Admission = () => {
                           Religion
                         </label>
                         <input
+                          required
                           type="text"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="firstName"
-                          placeholder=""
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              religion: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-44">
@@ -276,6 +407,12 @@ const Admission = () => {
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="emailAddress"
                           placeholder="Select"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              caste: e.target.value,
+                            }))
+                          }
                         >
                           <option>General</option>
                           <option>SC</option>
@@ -297,6 +434,12 @@ const Admission = () => {
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="firstName"
                           placeholder="John Doe"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              fatherName: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-64">
@@ -311,6 +454,12 @@ const Admission = () => {
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="middleName"
                           placeholder="John Doe"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              motherName: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-64">
@@ -325,6 +474,12 @@ const Admission = () => {
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="middleName"
                           placeholder="In Rupees"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              income: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                     </div>
@@ -341,6 +496,12 @@ const Admission = () => {
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="firstName"
                           placeholder="John Doe"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              guardianName: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-64">
@@ -355,6 +516,12 @@ const Admission = () => {
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="middleName"
                           placeholder="Son/Daughter"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              relationGuardian: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-64">
@@ -369,6 +536,12 @@ const Admission = () => {
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="middleName"
                           placeholder="In Rupees"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              incomeGuardian: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                     </div>
@@ -381,11 +554,18 @@ const Admission = () => {
                           Full Address
                         </label>
                         <textarea
+                          required
                           type="name"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="firstName"
                           placeholder="Your Full Address"
                           rows={5}
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              address: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-56">
@@ -396,10 +576,17 @@ const Admission = () => {
                           City
                         </label>
                         <input
+                          required
                           type="name"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="firstName"
                           placeholder="Mumbai"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              city: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-56">
@@ -410,24 +597,31 @@ const Admission = () => {
                           Pincode
                         </label>
                         <input
+                          required
                           type="name"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
                           aria-labelledby="firstName"
                           placeholder="400054"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              pincode: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                     </div>
                     <button
+                      type="submit"
                       className="mt-4 rounded-lg bg-blue-700 px-4 py-1 text-lg text-white hover:bg-blue-600"
-                      onClick={() => setNext("Education")}
                     >
                       Next
                     </button>
                   </div>
                 </div>
-              </>
+              </form>
             ) : next === "Education" ? (
-              <>
+              <form onSubmit={handleEducationInfo}>
                 <h1 className="mb-4 mt-5 text-center text-2xl font-medium leading-5 text-gray-800">
                   Educational Information
                 </h1>
@@ -443,8 +637,14 @@ const Admission = () => {
                         </label>
                         <input
                           type="number"
+                          required
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="firstName"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              percentage10: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-52">
@@ -456,8 +656,14 @@ const Admission = () => {
                         </label>
                         <input
                           type="text"
+                          required
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="middleName"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              board10: e.target.value,
+                            }))
+                          }
                           placeholder="Board Name Of 10th"
                         />
                       </div>
@@ -470,8 +676,14 @@ const Admission = () => {
                         </label>
                         <input
                           type="number"
+                          required
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="firstName"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              percentage12: e.target.value,
+                            }))
+                          }
                         />
                       </div>
                       <div className="ml-10 md:w-52">
@@ -483,13 +695,19 @@ const Admission = () => {
                         </label>
                         <input
                           type="text"
+                          required
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="middleName"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              board12: e.target.value,
+                            }))
+                          }
                           placeholder="Board Name Of 10+2"
                         />
                       </div>
                     </div>
-                    <div className="items-center md:flex lg:mb-8">
+                    {/* <div className="items-center md:flex lg:mb-8">
                       <div className="md:w-52">
                         <label
                           className="text-sm leading-none text-gray-800"
@@ -517,7 +735,7 @@ const Admission = () => {
                           placeholder="Your university name"
                         />
                       </div>
-                    </div>
+                    </div> */}
                     <div className="mt-4 items-center md:flex lg:mt-0">
                       <div className="w-full">
                         <label
@@ -529,8 +747,14 @@ const Admission = () => {
                         </label>
                         <input
                           type="text"
+                          required
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="firstName"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              lastUniversity: e.target.value,
+                            }))
+                          }
                           placeholder="West Bengal University"
                         />
                       </div>
@@ -543,8 +767,14 @@ const Admission = () => {
                         </label>
                         <input
                           type="text"
+                          required
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="middleName"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              passingYear: e.target.value,
+                            }))
+                          }
                           placeholder="2023"
                         />
                       </div>
@@ -558,7 +788,12 @@ const Admission = () => {
                         <input
                           type="text"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="lastName"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              rollNo: e.target.value,
+                            }))
+                          }
                           placeholder="123"
                         />
                       </div>
@@ -574,7 +809,12 @@ const Admission = () => {
                         <input
                           type="text"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="firstName"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              regNo: e.target.value,
+                            }))
+                          }
                           placeholder=""
                         />
                       </div>
@@ -587,23 +827,15 @@ const Admission = () => {
                         </label>
                         <input
                           type="text"
+                          required
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="middleName"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              best4: e.target.value,
+                            }))
+                          }
                           placeholder="Marks obtained / total marks"
-                        />
-                      </div>
-                      <div className="ml-10 md:w-72">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="lastName"
-                        >
-                          Academic institution last attended
-                        </label>
-                        <input
-                          type="text"
-                          className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="lastName"
-                          placeholder="Serampore College"
                         />
                       </div>
                     </div>
@@ -618,20 +850,25 @@ const Admission = () => {
                         <input
                           type="text"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="firstName"
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              extraCourse: e.target.value,
+                            }))
+                          }
                           placeholder="Carpenter, Electrician"
                         />
                       </div>
                     </div>
                     <button
                       className="mt-5 rounded-lg bg-blue-700 px-4 py-1 text-lg text-white hover:bg-blue-600"
-                      onClick={() => setNext("Upload")}
+                      type="submit"
                     >
                       Next
                     </button>
                   </div>
                 </div>
-              </>
+              </form>
             ) : next === "Upload" ? (
               <>
                 <h1 className="mt-5 text-center text-2xl font-medium leading-5 text-gray-800">
@@ -682,7 +919,7 @@ const Admission = () => {
                         </label>
                         <input type="file" className="mt-1" />
                       </div>
-                      <div className="w-64">
+                      <div className="w-64 ml-10">
                         <label
                           className="text-sm font-medium leading-none text-gray-800"
                           id="university"
@@ -691,7 +928,7 @@ const Admission = () => {
                         </label>
                         <input type="file" className="mt-1" />
                       </div>
-                      <div className="ml-10 md:w-64">
+                      {/* <div className="ml-10 md:w-64">
                         <div className="w-64">
                           <label
                             className="text-sm font-medium leading-none text-gray-800"
@@ -701,7 +938,7 @@ const Admission = () => {
                           </label>
                           <input type="file" className="mt-1" />
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="md:w-64 mt-8">
                       <div className="w-72">

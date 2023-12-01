@@ -5,8 +5,7 @@ export function Footer() {
     <footer className="py-2">
       <Container className="flex flex-col items-center justify-center md:flex-row">
         <p className="mr-2 mt-6 text-xs md:mt-0  md:text-base">
-          Copyright &copy; {new Date().getFullYear()} Giving Hope Foundation &
-          Serampore College
+          Copyright &copy; {new Date().getFullYear()} Serampore College & S-Mark
         </p>
       </Container>
     </footer>
