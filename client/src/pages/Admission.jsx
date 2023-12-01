@@ -1,7 +1,9 @@
 import { useState } from "react";
+import axios from "axios";
 
 const Admission = () => {
-  const [next, setNext] = useState("Personal Information");
+  const [next, setNext] = useState("Upload");
+  const [isLoading, setLoading] = useState(false);
   const [form, setForm] = useState({
     firstName: "",
     middleName: "",
@@ -35,6 +37,12 @@ const Admission = () => {
     regNo: "",
     best4: "",
     extraCourse: "",
+    passportPics: [],
+    aadharCard: [],
+    castCertificate: [],
+    marksheet10: [],
+    marksheet12: [],
+    vocationalCerti: [],
   });
 
   const handlePersonalInfo = (e) => {
@@ -51,6 +59,43 @@ const Admission = () => {
     console.log(form);
 
     setNext("Upload");
+  };
+
+  const handleUploadDocuments = () => {
+    if (
+      !form.marksheet10.length ||
+      !form.marksheet12.length ||
+      !form.aadharCard.length ||
+      !form.castCertificate.length ||
+      !form.passportPics.length
+    ) {
+      console.log("Please provide ");
+      return;
+    }
+
+    setNext("Payment");
+  };
+
+  const uploadDocument = async ({ e, docName }) => {
+    setLoading(true);
+    try {
+      const images = Array.from(e.target.files);
+      const form = new FormData();
+      images.forEach((image) => {
+        form.append("images", image);
+      });
+
+      const res = await axios.post(
+        "http://localhost:5000/api/documentUpload",
+        form
+      );
+
+      setForm((prev) => ({ ...prev, [docName]: res.data.imageLinks }));
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
   };
 
   return (
@@ -872,7 +917,7 @@ const Admission = () => {
             ) : next === "Upload" ? (
               <>
                 <h1 className="mt-5 text-center text-2xl font-medium leading-5 text-gray-800">
-                  Upload Documents
+                  Upload Documents {isLoading && "Loading..."}
                 </h1>
                 <div className="flex justify-between border-b border-gray-200 pb-8 lg:flex">
                   <div>
@@ -884,7 +929,14 @@ const Admission = () => {
                         >
                           Passport Size Photo
                         </label>
-                        <input type="file" className="mt-1" />
+                        <input
+                          type="file"
+                          multiple
+                          className="mt-1"
+                          onChange={(e) =>
+                            uploadDocument({ e, docName: "passportPics" })
+                          }
+                        />
                       </div>
                       <div className="ml-10 md:w-64">
                         <div className="w-64">
@@ -894,7 +946,14 @@ const Admission = () => {
                           >
                             Address Proof (Aadhar Card)
                           </label>
-                          <input type="file" className="mt-1" />
+                          <input
+                            type="file"
+                            className="mt-1"
+                            multiple
+                            onChange={(e) =>
+                              uploadDocument({ e, docName: "aadharCard" })
+                            }
+                          />
                         </div>
                       </div>
                       <div className="ml-10 md:w-64">
@@ -905,7 +964,14 @@ const Admission = () => {
                           >
                             Cast certificate if any
                           </label>
-                          <input type="file" className="mt-1" />
+                          <input
+                            type="file"
+                            className="mt-1"
+                            multiple
+                            onChange={(e) =>
+                              uploadDocument({ e, docName: "castCertificate" })
+                            }
+                          />
                         </div>
                       </div>
                     </div>
@@ -917,7 +983,14 @@ const Admission = () => {
                         >
                           10th Marksheet
                         </label>
-                        <input type="file" className="mt-1" />
+                        <input
+                          type="file"
+                          className="mt-1"
+                          multiple
+                          onChange={(e) =>
+                            uploadDocument({ e, docName: "marksheet10" })
+                          }
+                        />
                       </div>
                       <div className="w-64 ml-10">
                         <label
@@ -926,7 +999,14 @@ const Admission = () => {
                         >
                           10+2 Marksheet
                         </label>
-                        <input type="file" className="mt-1" />
+                        <input
+                          type="file"
+                          className="mt-1"
+                          multiple
+                          onChange={(e) =>
+                            uploadDocument({ e, docName: "marksheet12" })
+                          }
+                        />
                       </div>
                       {/* <div className="ml-10 md:w-64">
                         <div className="w-64">
@@ -948,12 +1028,19 @@ const Admission = () => {
                         >
                           Vocational Certification If Any
                         </label>
-                        <input type="file" className="mt-1" />
+                        <input
+                          type="file"
+                          className="mt-1"
+                          multiple
+                          onChange={(e) =>
+                            uploadDocument({ e, docName: "vocationalCerti" })
+                          }
+                        />
                       </div>
                     </div>
                     <button
                       className="mt-5 rounded-lg bg-blue-700 px-4 py-1 text-lg text-white hover:bg-blue-600"
-                      onClick={() => setNext("Payment")}
+                      onClick={handleUploadDocuments}
                     >
                       Next
                     </button>
