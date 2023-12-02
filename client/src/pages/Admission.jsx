@@ -4,9 +4,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import Loading from "../components/Loading";
+import { useNavigate } from "react-router-dom";
 
 const Admission = () => {
   const [next, setNext] = useState("Personal Information");
+  const navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
   const [form, setForm] = useState({
     firstName: "",
@@ -50,7 +52,7 @@ const Admission = () => {
   });
 
   const handlePersonalInfo = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setNext("Education");
   };
 
@@ -60,15 +62,15 @@ const Admission = () => {
   };
 
   const submitApplication = async () => {
+    setLoading(true)
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/studentRegister",
+        "https://ipm.in-smark.com/api/studentRegister",
         form
       );
 
       setLoading(false);
       toast.success("Application Submitted");
-      
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -101,7 +103,7 @@ const Admission = () => {
       });
 
       const res = await axios.post(
-        "http://localhost:5000/api/documentUpload",
+        "https://ipm.in-smark.com/api/documentUpload",
         form
       );
 
@@ -204,6 +206,9 @@ const Admission = () => {
                           id="firstName"
                         >
                           First Name
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           required
@@ -225,6 +230,9 @@ const Admission = () => {
                           id="middleName"
                         >
                           Middle Name
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           required
@@ -246,6 +254,9 @@ const Admission = () => {
                           id="lastName"
                         >
                           Last Name
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           required
@@ -269,6 +280,9 @@ const Admission = () => {
                           id="emailAddress"
                         >
                           Email address
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           required
@@ -290,6 +304,9 @@ const Admission = () => {
                           id="phone"
                         >
                           Phone number
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           required
@@ -333,6 +350,9 @@ const Admission = () => {
                           id="emailAddress"
                         >
                           Date Of Birth
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           required
@@ -350,9 +370,12 @@ const Admission = () => {
                       <div className="ml-10 md:w-44">
                         <label
                           className="text-sm leading-none text-gray-800"
-                          id="emailAddress"
+                          id="gender"
                         >
                           Gender
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <select
                           required
@@ -374,16 +397,12 @@ const Admission = () => {
                         </select>
                       </div>
                       <div className="ml-10 md:w-32">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="emailAddress"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Blood Group
                         </label>
                         <input
                           type="text"
                           className="mt-3 w-full rounded border border-gray-200 bg-gray-100 p-3 text-sm font-medium leading-none text-gray-800 focus:border-gray-600 focus:outline-none"
-                          aria-labelledby="emailAddress"
                           placeholder="A+"
                           onChange={(e) =>
                             setForm((prev) => ({
@@ -424,6 +443,9 @@ const Admission = () => {
                           id="nationality"
                         >
                           Nationality
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           required
@@ -445,6 +467,9 @@ const Admission = () => {
                           id="religion"
                         >
                           Religion
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           required
@@ -616,6 +641,9 @@ const Admission = () => {
                           id="firstName"
                         >
                           Full Address
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <textarea
                           required
@@ -638,6 +666,9 @@ const Admission = () => {
                           id="firstName"
                         >
                           City
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           required
@@ -659,6 +690,9 @@ const Admission = () => {
                           id="firstName"
                         >
                           Pincode
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           required
@@ -693,11 +727,11 @@ const Admission = () => {
                   <div>
                     <div className="items-center md:flex lg:mb-8">
                       <div className="md:w-36">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="fatherFirstName"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           10th Percentage
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           type="number"
@@ -712,11 +746,11 @@ const Admission = () => {
                         />
                       </div>
                       <div className="ml-10 md:w-52">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="fatherMiddleName"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           10th Board Name
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           type="text"
@@ -732,11 +766,11 @@ const Admission = () => {
                         />
                       </div>
                       <div className="pl-10  md:w-48">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="fatherFirstName"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           10+2 Percentage
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           type="number"
@@ -751,11 +785,11 @@ const Admission = () => {
                         />
                       </div>
                       <div className="ml-10 md:w-52">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="fatherMiddleName"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           10+2 Board Name
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           type="text"
@@ -802,12 +836,12 @@ const Admission = () => {
                     </div> */}
                     <div className="mt-4 items-center md:flex lg:mt-0">
                       <div className="w-full">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="university"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Name of the last University / Council / Board
                           Examination passed
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           type="text"
@@ -823,11 +857,11 @@ const Admission = () => {
                         />
                       </div>
                       <div className="ml-10 md:w-64">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="middleName"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Year Of Passing
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           type="text"
@@ -864,10 +898,7 @@ const Admission = () => {
                     </div>
                     <div className="items-center md:flex lg:mt-8">
                       <div className="md:w-52">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="university"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Registration No. with year
                         </label>
                         <input
@@ -883,11 +914,11 @@ const Admission = () => {
                         />
                       </div>
                       <div className="ml-10 md:w-64">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="middleName"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Marks Obtained (best of 4 subjects)
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           type="text"
@@ -905,10 +936,7 @@ const Admission = () => {
                     </div>
                     <div className="items-center md:flex lg:mt-8">
                       <div className="">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="university"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Name of the any other vocational course(if attended)
                         </label>
                         <input
@@ -936,7 +964,7 @@ const Admission = () => {
             ) : next === "Upload" ? (
               <>
                 <h1 className="mt-5 text-center text-2xl font-medium leading-5 text-gray-800">
-                  Upload Documents {isLoading && "Loading..."}
+                  Upload Documents {isLoading && "Uploading..."}
                   {isLoading && <Loading />}
                 </h1>
                 <div className="flex justify-between border-b border-gray-200 pb-8 lg:flex">
@@ -948,6 +976,9 @@ const Admission = () => {
                           id="university"
                         >
                           Passport Size Photo
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           type="file"
@@ -965,6 +996,9 @@ const Admission = () => {
                             id="university"
                           >
                             Address Proof (Aadhar Card)
+                            <span className="text-red-500 required-dot ml-0.5">
+                              *
+                            </span>
                           </label>
                           <input
                             type="file"
@@ -1002,6 +1036,9 @@ const Admission = () => {
                           id="university"
                         >
                           10th Marksheet
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           type="file"
@@ -1018,6 +1055,9 @@ const Admission = () => {
                           id="university"
                         >
                           10+2 Marksheet
+                          <span className="text-red-500 required-dot ml-0.5">
+                            *
+                          </span>
                         </label>
                         <input
                           type="file"
