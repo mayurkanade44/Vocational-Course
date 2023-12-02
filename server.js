@@ -6,6 +6,7 @@ import fileUpload from "express-fileupload";
 import Student from "./studentModel.js";
 import fs from "fs";
 import cors from "cors";
+import path from "path";
 
 dotenv.config();
 const app = express();
