@@ -3,6 +3,7 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import Loading from "../components/Loading";
 
 const Admission = () => {
   const [next, setNext] = useState("Personal Information");
@@ -49,18 +50,12 @@ const Admission = () => {
   });
 
   const handlePersonalInfo = (e) => {
-    e.preventDefault();
-
-    console.log(form);
-
+    e.preventDefault()
     setNext("Education");
   };
 
   const handleEducationInfo = (e) => {
     e.preventDefault();
-
-    console.log(form);
-
     setNext("Upload");
   };
 
@@ -73,6 +68,7 @@ const Admission = () => {
 
       setLoading(false);
       toast.success("Application Submitted");
+      
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -111,14 +107,17 @@ const Admission = () => {
 
       setForm((prev) => ({ ...prev, [docName]: res.data.imageLinks }));
       setLoading(false);
+      toast.success("Document Uploaded");
     } catch (error) {
       console.log(error);
       setLoading(false);
+      toast.error("Document Upload Failed");
     }
   };
 
   return (
     <div className="m-5">
+      {isLoading && <Loading />}
       <ToastContainer position="top-center" autoClose={3000} />
       <div className="flex items-center justify-center">
         <div className="w-full px-8 xl:w-10/12">
@@ -938,6 +937,7 @@ const Admission = () => {
               <>
                 <h1 className="mt-5 text-center text-2xl font-medium leading-5 text-gray-800">
                   Upload Documents {isLoading && "Loading..."}
+                  {isLoading && <Loading />}
                 </h1>
                 <div className="flex justify-between border-b border-gray-200 pb-8 lg:flex">
                   <div>

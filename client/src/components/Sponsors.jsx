@@ -2,7 +2,7 @@ import { Container } from './Container'
 
 import logoStaticKit from '../images/logo1.png'
 import logoTransistor from '../images/logo2.jpeg'
-import logoTuple from '../images/epcorn.png'
+import logoTuple from '../images/logo25.jpeg'
 
 const sponsors = [
   { name: 'StaticKit', logo: logoStaticKit },

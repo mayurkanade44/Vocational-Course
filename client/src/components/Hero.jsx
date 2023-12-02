@@ -3,7 +3,7 @@ import { Container } from "./Container";
 import backgroundImage from "../images/background.jpg";
 import Carousel from "./Carousel";
 import logo1 from "../images/logo1.png";
-import logo2 from "../images/logo2.jpeg";
+import logo2 from "../images/logo2.png";
 import guy from "../images/guy.png";
 import advantage from "../images/advantage.png";
 
@@ -56,28 +56,30 @@ export function Hero() {
               Serampore Railway Station.
             </p>
             <h2 className="col-span-4 mt-8 text-center text-3xl font-semibold text-blue-600">
-              About Giving Hope Foundation
+              About S Mark
             </h2>
             <div className="col-span-1 hidden justify-center md:flex">
               <img src={logo2} alt="logo" />
             </div>
             <p className="col-span-4 my-4 md:col-span-3">
-              Project “BNVGH” A registered trust working unbiasedly, focusing to
-              deliver hope to all endeavours leading to improve sustainability
-              and quality of life. To bring together technology, individuals,
-              and teams who work within their circle of knowledge and excellence
-              to collaborate with each other and to deliver hope in more than
-              just monetary ways, through actions and means where it would
-              matter and make the nation stronger, make INDIANS proud. Our
-              programs are focused on individual and community revolving around
-              health care, hygiene, skill development, empowering individuals,
-              teaching /learning, relief works, innovations, technology
-              distribution, education, water conservation, air purification,
-              improved sanitation, animal welfare, and public health. Our focus
-              is to bring together talented, experienced individuals from
-              different walks of life to contribute and be a part of a greater
-              good and impart lessons learnt over decades to empower and give
-              hope.
+              S Mark, its "Skill Enhancement Course on the Principle and
+              Practice of Integrated Pest Management”, is a focused learning
+              teaching programme to deliver improved, sustainable and quality
+              based early learning for professional pest management industry.
+              The collaborative approach is to bring together technology,
+              individuals, and teams who work within their circle of knowledge
+              and excellence to collaborate with each other and to deliver hope
+              in more than just monetary ways, through actions and means where
+              it would matter and make the nation stronger, make INDIANS proud.
+              Our programs are focused on individual and community revolving
+              around health care, hygiene, skill development, empowering
+              individuals, teaching /learning, relief works, innovations,
+              technology distribution, education, water conservation, air
+              purification, improved sanitation, animal welfare, and public
+              health. Our focus is to bring together talented, experienced
+              individuals from different walks of life to contribute and be a
+              part of a greater good and impart lessons learnt over decades to
+              empower and give hope.
             </p>
             <div></div>
             <h2 className="col-span-4 mt-8 text-start text-3xl font-semibold text-blue-600 md:col-span-3">
