@@ -11,8 +11,7 @@ import stevenMchailImage from "../images/stq.jpeg";
 const days = [
   {
     name: "Opening Day",
-    date: "1st Batch: September",
-    batch: "2nd Batch: February",
+    date: "1st Batch: Announced Soon",
     dateTime: "2022-04-04",
     speakers: [
       {
@@ -34,9 +33,7 @@ const days = [
   },
   {
     name: "Classes & Workshops",
-    date: "1st Batch: Sep - Nov",
-    batch: "2nd Batch: Feb - Apr",
-    dateTime: "2022-04-05",
+    date: "1st Batch: Announced Soon",
     speakers: [
       {
         name: "Stelson Quadros",
@@ -57,8 +54,7 @@ const days = [
   },
   {
     name: "Course Culmination",
-    date: "1st Batch: January",
-    batch: "2nd Batch: May",
+    date: "1st Batch: Announced Soon",
     dateTime: "2022-04-06",
     speakers: [
       {
@@ -208,7 +204,7 @@ export function Speakers() {
                           className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
                           src={speaker.image}
                           alt="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
-                          sizes={{minWidth:1280}}
+                          sizes={{ minWidth: 1280 }}
                         />
                       </div>
                     </div>

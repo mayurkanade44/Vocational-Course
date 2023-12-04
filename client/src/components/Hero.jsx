@@ -62,24 +62,26 @@ export function Hero() {
               <img src={logo2} alt="logo" />
             </div>
             <p className="col-span-4 my-4 md:col-span-3">
-              S Mark, its "Skill Enhancement Course on the Principle and
-              Practice of Integrated Pest Management”, is a focused learning
-              teaching programme to deliver improved, sustainable and quality
-              based early learning for professional pest management industry.
-              The collaborative approach is to bring together technology,
-              individuals, and teams who work within their circle of knowledge
-              and excellence to collaborate with each other and to deliver hope
-              in more than just monetary ways, through actions and means where
-              it would matter and make the nation stronger, make INDIANS proud.
-              Our programs are focused on individual and community revolving
-              around health care, hygiene, skill development, empowering
-              individuals, teaching /learning, relief works, innovations,
-              technology distribution, education, water conservation, air
-              purification, improved sanitation, animal welfare, and public
-              health. Our focus is to bring together talented, experienced
-              individuals from different walks of life to contribute and be a
-              part of a greater good and impart lessons learnt over decades to
-              empower and give hope.
+              S Mark, is a leading organization dedicated towards developing new
+              technology, training, research and skill development. The Skill
+              Enhancement Course on the Principle and Practice of Integrated
+              Pest Management, is a focused learning, teaching programme
+              designed to deliver improved, sustainable and quality based early
+              learning for professional pest management industry. The
+              collaborative approach is to bring together
+              technology,individuals, and teams who work within their circle of
+              knowledge and excellence to collaborate with each other to deliver
+              quality learning program. Such skill enhancement programs
+              developed would matter and make the nation stronger, make INDIANS
+              proud. Teaching programs at S Mark are focused on individual and
+              community revolving around health care, hygiene, skill
+              development, empowering individuals, teaching /learning, relief
+              works, innovations, technology distribution, education, water
+              conservation, air purification, improved sanitation, animal
+              welfare, and public health. Our focus is to bring together
+              talented, experienced individuals from different walks of life to
+              contribute and be a part of a greater good and impart lessons
+              learnt over decades to empower and generate employment.
             </p>
             <div></div>
             <h2 className="col-span-4 mt-8 text-start text-3xl font-semibold text-blue-600 md:col-span-3">
@@ -127,7 +129,7 @@ export function Hero() {
             </ul>
           </div>
           <Button
-            href="https://res.cloudinary.com/epcorn/image/upload/v1692766495/signature/Skill_Based_Development_Course_7__compressed_bn0kee.pdf"
+            href="https://res.cloudinary.com/epcorn/image/upload/v1701693934/signature/Final_Prospectus_suqeg2.pdf"
             className="mt-10 w-full bg-green-500 sm:hidden"
           >
             Prospectus

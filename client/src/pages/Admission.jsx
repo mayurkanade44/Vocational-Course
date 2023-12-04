@@ -62,7 +62,7 @@ const Admission = () => {
   };
 
   const submitApplication = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const res = await axios.post(
         "https://ipm.in-smark.com/api/studentRegister",
@@ -275,10 +275,7 @@ const Admission = () => {
                     </div>
                     <div className="mt-8 items-center md:flex">
                       <div className="md:w-64">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="emailAddress"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Email address
                           <span className="text-red-500 required-dot ml-0.5">
                             *
@@ -299,10 +296,7 @@ const Admission = () => {
                         />
                       </div>
                       <div className="mt-4 md:ml-10 md:mt-0 md:w-64">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="phone"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Phone number
                           <span className="text-red-500 required-dot ml-0.5">
                             *
@@ -323,10 +317,7 @@ const Admission = () => {
                         />
                       </div>
                       <div className="mt-4 md:ml-10 md:mt-0 md:w-64">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="alternate"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Alternate Phone number
                         </label>
                         <input
@@ -345,10 +336,7 @@ const Admission = () => {
                     </div>
                     <div className="mt-8 items-center md:flex">
                       <div className="md:w-56">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="emailAddress"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Date Of Birth
                           <span className="text-red-500 required-dot ml-0.5">
                             *
@@ -877,10 +865,7 @@ const Admission = () => {
                         />
                       </div>
                       <div className="ml-10 md:w-64">
-                        <label
-                          className="text-sm leading-none text-gray-800"
-                          id="lastName"
-                        >
+                        <label className="text-sm leading-none text-gray-800">
                           Roll Number
                         </label>
                         <input
