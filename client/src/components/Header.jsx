@@ -8,7 +8,7 @@ export function Header() {
     <header className="relative z-50 lg:pt-4">
       <Container className="flex flex-wrap items-center justify-center sm:justify-between lg:flex-nowrap">
         <div className="mt-10 lg:mt-0 lg:grow lg:basis-0">
-          <Link to='/'>
+          <Link to="/">
             <Logo className="h-12 w-auto text-slate-900" />
           </Link>
         </div>
@@ -20,7 +20,7 @@ export function Header() {
         <div className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end">
           <Button
             className="bg-green-600 hover:bg-green-500"
-            href="https://res.cloudinary.com/epcorn/image/upload/v1692766495/signature/Skill_Based_Development_Course_7__compressed_bn0kee.pdf"
+            href="https://res.cloudinary.com/epcorn/image/upload/v1701693934/signature/Final_Prospectus_suqeg2.pdf"
           >
             Prospectus
           </Button>
