@@ -129,7 +129,7 @@ export function Hero() {
             </ul>
           </div>
           <Button
-            href="https://res.cloudinary.com/epcorn/image/upload/v1701752842/signature/Skill_Based_Development_Course_12_n4l6xn.pdf"
+            href="https://res.cloudinary.com/epcorn/image/upload/v1701753414/signature/Skill_Based_Development_Course_13_q3wv2t.pdf"
             className="mt-10 w-full bg-green-500 sm:hidden"
           >
             Prospectus
