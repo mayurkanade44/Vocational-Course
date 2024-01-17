@@ -65,7 +65,7 @@ const Admission = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://ipm.in-smark.com/api/studentRegister",
+        "/api/studentRegister",
         form
       );
 
@@ -102,10 +102,7 @@ const Admission = () => {
         form.append("images", image);
       });
 
-      const res = await axios.post(
-        "https://ipm.in-smark.com/api/documentUpload",
-        form
-      );
+      const res = await axios.post("/api/documentUpload", form);
 
       setForm((prev) => ({ ...prev, [docName]: res.data.imageLinks }));
       setLoading(false);
